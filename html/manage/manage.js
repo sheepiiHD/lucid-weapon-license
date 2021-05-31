@@ -12,8 +12,9 @@ function openManage(data) {
           $("#application-container")
               .append(`
                 <div class="carousel-item ${index === 0 ? `active`: ``}">
-                  <div class="carousel-body" style="height:600px; width:400px">${application.citizenID}
-                  
+                  <div class="carousel-body">
+                    ${application.citizenID}
+
                   
                   </div>
                 </div>

@@ -13,28 +13,10 @@ Citizen.CreateThread(
     end
 )
 
-
-function openMenu()
-    SendNUIMessage(
-        {
-            type = "open",
-            menu = "application"
-            meta_data = 
-        }
-    )
-    SetNuiFocus(true, true)
-    Anim()
-end
-
-
-function SendApplication(data)
-    TriggerServerEvent("lucid-weapon-licenses:submitApplication", data)
-end
-
 RegisterNUICallback(
     "submitApplication",
     function(data, cb)
-        SendApplication(data)
+        TriggerServerEvent("lucid-weapon-licenses:submitApplication", data)
         SetNuiFocus(false, false)
     end
 )
@@ -42,19 +24,21 @@ RegisterNUICallback(
 RegisterNUICallback(
     "getInfo",
     function(cb)
-            TriggerServerEvent("lucid-weapon-license:getInfo")
     end
 )
 
 --- HANDLE CLOSE/OPEN ----
-function OpenMenu(cb)
-    SendNUIMessage(
-        {
-            type = "open",
-            menu = "application"
-            meta_data = 
-        }
-    )
+function OpenMenu(menu, cb)
+    TriggerServerEvent("lucid-weapon-license:getInfo", function(data){
+        SendNUIMessage(
+            {
+                type = "open",
+                menu = "menu"
+                meta_data = data
+            }
+        )      
+    }), {source=source, menu=menu});
+    
     SetNuiFocus(true, true)
     Anim()
     cb('ok')
