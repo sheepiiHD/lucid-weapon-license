@@ -13,9 +13,9 @@ function openManage(data) {
               .append(`
                 <div class="carousel-item ${index === 0 ? `active`: ``}">
                   <div class="carousel-body">
-                    ${application.citizenID}
-
-                  
+                    <div class="d-flex align-items-end justify-content-around">
+                      <button id="accept-button" type="button" class="btn btn-success btn-lg app-button">✓</button>
+                      <button id="deny-button" type="button" class="btn btn-danger btn-lg app-button">X</button>
                   </div>
                 </div>
               `);

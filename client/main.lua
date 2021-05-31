@@ -1,54 +1,42 @@
 
-Citizen.CreateThread(
-    function()
-        while ESX == nil do
-            TriggerEvent(
-                "esx:getSharedObject",
-                function(obj)
-                    ESX = obj
-                end
-            )
-            Citizen.Wait(0)
-        end
-    end
-)
+--- HANDLE SUBMITTING APPLICATION --- 
+RegisterNUICallback("submitApplication", function(data, cb)
+    TriggerServerEvent("lucid-weapon-licenses:submitApplication", data);
+    TriggerClientEvent("lucid-weapon-license:closeMenu", {});
+    cb("ok")
+end)
 
-RegisterNUICallback(
-    "submitApplication",
-    function(data, cb)
-        TriggerServerEvent("lucid-weapon-licenses:submitApplication", data)
-        SetNuiFocus(false, false)
-    end
-)
+--- HANDLE ACCEPT APPLICATION ---
+RegisterNUICallback("acceptApplication", function(data, cb)
+    TriggerServerEvent("lucid-weapon-license:acceptApplication", data);
+    cb("ok")
+end)
 
-RegisterNUICallback(
-    "getInfo",
-    function(cb)
-    end
-)
+--- HANDLE DENY APPLICATION --- 
+RegisterNUICallback("denyApplication", function(data, cb)
+    TriggerServerEvent("lucid-weapon-license:denyApplication", data)
+    cb("ok")
+end)
 
 --- HANDLE CLOSE/OPEN ----
-function OpenMenu(menu, cb)
-    TriggerServerEvent("lucid-weapon-license:getInfo", function(data){
-        SendNUIMessage(
-            {
-                type = "open",
-                menu = "menu"
-                meta_data = data
-            }
-        )      
-    }), {source=source, menu=menu});
+RegisterNetEvent("lucid-weapon-license:openMenu")
+AddEventHandler("lucid-weapon-license", function(menu, data, cb)
+    SendNUIMessage({
+        type = "open",
+        menu = menu
+        meta_data = data
+    })  
     
     SetNuiFocus(true, true)
     Anim()
     cb('ok')
-end
+end)
 
-function CloseMenu(cb){
+RegisterNetEvent("lucid-weapon-license:closeMenu")
+AddEventHandler("lucid-weapon-license:closeMenu", function()
     SetNuiFocus(false, false)
     StopAnim()
-    cb('ok')
-}
+end)
 
 --- HANDLE ANIMATION (holding and dropping clipboard)----
 local prop = nil
