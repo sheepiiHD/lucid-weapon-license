@@ -11,6 +11,7 @@ $(document).ready(function() {
         let citizenID = $(this).attr("id").split('-')[0];
 
         $.post('https://lucid-weapon-license/denyApplication', {citizenID: citizenID});
+        $('#container-' + citizenID).next().find('.carousel-item').addClass('active');
         $('#container-' + citizenID).remove();
     });
 
