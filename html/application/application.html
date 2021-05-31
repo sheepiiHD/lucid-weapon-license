@@ -2,7 +2,7 @@
   <div class="container show">
     <div class='row'>
       <div class="col-sm-12">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative backlog">
+        <div class="row border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative backlog">
           <div class="col p-2 d-flex flex-column position-static">
             <span class="text-center"><h2>LSPD Weapon Application</h2></span>
           </div>
@@ -27,7 +27,7 @@
       </div>
 
       <div class="col-sm-12" style="margin-top: 20px">
-        <textarea class="form-control fancy" style="resize: none;" rows="5" id="reason" placeholder="Why do you want a weapon license?" maxlength="1000"></textarea>
+        <textarea class="form-control fancy" style="resize: none;" rows="3" id="reason" placeholder="Why do you want a weapon license?" maxlength="1000"></textarea>
         <b><figcaption id="remaining" class="figure-caption">0/1000</figcaption></b>
       </div>
       
@@ -40,14 +40,20 @@
       <div class="col-sm-12" style="margin-top: 20px">
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" id="charged">
-          <label class="form-check-label" for="charged">
+          <label class="form-check-label amount-margin" for="charged">
             Do you agree to being charged 
             <span id="amount">
               <div class="spinner-border" role="status" style="max-height:20px; max-width:20px">
                 <span class="visually-hidden">Loading...</span>
               </div>
-            </span>?
+            </span>
           </label>
+        </div>
+      </div>
+      <div class="col-sm-12" style="margin-top:5px">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="agreement">
+          <label class="form-check-label" for="agreement">Do you understand that you're not promised a weapons license by paying the application fee?</label>
         </div>
       </div>
     </div>

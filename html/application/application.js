@@ -9,7 +9,7 @@ function openApplication(data) {
         $("#main_container").html(result)
             .fadeOut(0).fadeIn(300, function() {
             /** Set Charge Amount **/
-            $('#amount').text(`$${data.amount.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} USD`);
+            $('#amount').text(`$${data.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} USD`);
 
 
             document.getElementById('citizenID').value = data.citizenID;

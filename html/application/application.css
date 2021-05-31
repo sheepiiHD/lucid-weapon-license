@@ -5,6 +5,12 @@
 .backlog {
   background-color: rgba(0, 71, 171, 0.7);
   color: white;
+  margin-bottom: 5px;
+}
+
+.amount-margin{
+  min-height:10px;
+  margin-bottom: 5px;
 }
 
 .text-horizontal{
@@ -24,10 +30,6 @@
   color: green;
 }
 
-.breaker {
-  margin-top: 10px;
-}
-
 .figure-caption{
   color: rgb(0, 0, 0);
 }
@@ -41,9 +43,10 @@
 }
 
 #submit-button{
-  margin-top:15px;
+  margin-top:30px;
 }
 
 .btn-primary.disabled, .btn-primary:disabled{
   background-color: grey !important;
+  border-color: grey !important;
 }
