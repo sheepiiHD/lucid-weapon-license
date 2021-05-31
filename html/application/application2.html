@@ -1,0 +1,58 @@
+
+  <div class="row mb-12 container">
+    <div class="col-md-10">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative backlog centered">
+        <div class="col p-4 d-flex flex-column position-static">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative backlog">
+                <div class="col p-2 d-flex flex-column position-static">
+                  <span class="text-center"><h2>LSPD Weapon Application</h2></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <input hidden id="citizenID" value="">
+              <label for="firstName" aria-disabled="true" class="form-label">First Name</label>
+              <input type="text" class="form-control" disabled id="firstName" placeholder="" value="" readonly>
+            </div>
+            <div class="col-sm-6">
+              <label for="lastName" aria-disabled="true" class="form-label">Last Name</label>
+              <input type="text" class="form-control" disabled id="lastName" placeholder="" value="" readonly>
+            </div>
+            <div class="col-sm-6 breaker">
+              <label for="age" aria-disabled="true" class="form-label">Age</label>
+              <input type="text" class="form-control" disabled id="age" placeholder="" value="" readonly>
+            </div>
+            <div class="col-sm-6 breaker">
+              <label for="job" aria-disabled="true" class="form-label">Job/Occupation</label>
+              <input type="text" class="form-control" disabled id="job" placeholder="" value="" readonly>
+            </div>
+
+            <div class="col-sm-12" style="margin-top: 20px">
+              <textarea class="form-control" rows="5" id="reason" placeholder="Why do you want a weapon license?" maxlength="1000"></textarea>
+              <b><figcaption id="remaining" class="figure-caption">0/1000</figcaption></b>
+            </div>
+            
+            <div class="col-sm-12" style="margin-top: 20px">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="convicted">
+                <label class="custom-control-label" for="convicted">Have you been convicted of a crime?</label>
+              </div>
+            </div>
+            <div class="col-sm-12" style="margin-top: 20px; margin-bottom: 10px">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="charged">
+                <label class="custom-control-label" for="charged">Do you agree to being charged <span id="amount">
+                  <div class="spinner-border" role="status" style="max-height:20px; max-width:20px">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </span>?</label>
+              </div>
+          </div>
+        </div>
+      </div>
+        <button id="submit-button" type="button" class="btn col-sm-12 btn-primary" disabled>Submit</button>
+    </div>
+  </div>
+  <script src="application/events.js"></script>
